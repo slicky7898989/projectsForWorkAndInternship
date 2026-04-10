@@ -17,4 +17,15 @@ public class details
     {
         return status;
     }
+
+
+    public String namee()
+    {
+        return name;
+    }
+
+    public String reason()
+    {
+        return why;
+    }
 }

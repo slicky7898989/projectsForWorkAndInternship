@@ -1,7 +1,6 @@
 package org.example.detailProcessing;
 
 import org.example.details.*;
-import javafx.util.Pair;
 
 import java.util.*;
 
@@ -10,8 +9,8 @@ public class arrayObject
     details gent;
     private userInput nu = new userInput();
     private ArrayList<details> men= new ArrayList<>();
-    private Pair<ROY,details> kent;
-    private ArrayList<Pair<ROY,details>> mem= new ArrayList<>();
+    private ArrayList<ArrayList<Object>> tent= new ArrayList<>();
+
 
 
 
@@ -36,34 +35,65 @@ public class arrayObject
 
     }
 
-    public  void makeTheFinale()
+
+    public  void sortt()
     {
+        int po =0;
 
-        for( details f:men)
+        for(details bent:men)
         {
-            if(f.tus() == ROY.ORANGE )
+            if(bent.tus() == ROY.RED)
             {
-                //lent.put(ROY.ORANGE, gent);
-                mem.add(kent= new Pair<>(ROY.ORANGE,gent));
+                tent.add(new ArrayList<>());
+                tent.get(po).add(0,ROY.RED);
+                tent.get(po).add(1,"Name: "+bent.namee());
+                tent.get(po).add(2,"Reason: "+bent.reason()+'\n'+'\n');
+                po++;
             }
         }
 
-        for( details i:men)
+
+        for(details bent:men)
         {
-            if(i.tus() == ROY.YELLOW )
+            if(bent.tus() == ROY.YELLOW)
             {
-                mem.add(kent= new Pair<>(ROY.YELLOW,gent));
+                tent.add(new ArrayList<>());
+                tent.get(po).add(0,ROY.YELLOW);
+                tent.get(po).add(1,"Name: "+bent.namee());
+                tent.get(po).add(2,"Reason: "+bent.reason()+'\n'+'\n');
+                po++;
             }
         }
 
-        for( details fi:men)
+
+        for(details bent:men)
         {
-            if(fi.tus() == ROY.RED )
+            if(bent.tus() == ROY.ORANGE)
             {
-                mem.add(kent= new Pair<>(ROY.RED,gent));;
+                tent.add(new ArrayList<>());
+                tent.get(po).add(0,ROY.ORANGE);
+                tent.get(po).add(1,"Name: "+bent.namee());
+                tent.get(po).add(2,"Reason: "+bent.reason()+'\n'+'\n');
+                po++;
             }
         }
     }
+
+
+    public void printStuff()
+    {
+        for(ArrayList<Object> bent:tent)
+        {
+            for (Object rent:bent)
+            {
+                System.out.println(rent);
+            }
+        }
+    }
+
+
+
+
 
 
 

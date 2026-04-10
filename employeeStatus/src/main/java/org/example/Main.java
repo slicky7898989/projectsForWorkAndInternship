@@ -5,7 +5,8 @@ public class Main {
     {
         arrayObject obj = new arrayObject();
         obj.addtoList();
-        obj.makeTheFinale();
-        obj.printMulti();
+        obj.sortt();
+        obj.printStuff();
+
     }
 }
