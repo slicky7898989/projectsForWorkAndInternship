@@ -1,10 +1,14 @@
 package org.example.detailProcessing;
 
+import java.util.Objects;
 import java.util.Scanner;
+import org.example.details.*;
 
 public class userInput
 {
     private Scanner nui = new Scanner(System.in);
+    private  String jent;
+    private ROY ni;
 
     private String nameDescrip()
     {
@@ -14,7 +18,7 @@ public class userInput
 
     public String nameUserI()
     {
-        nameDescrip();
+        System.out.println(nameDescrip());
         String aa = nui.nextLine();
         return aa;
     }
@@ -27,21 +31,34 @@ public class userInput
 
     public String reasonUserI()
     {
-        reasonDescrip();
+        System.out.println(reasonDescrip());
         String bb = nui.nextLine();
         return bb;
     }
 
     private String statusDescrip()
     {
-        String c ="Type in status: ";
+        String c ="Type in status, R for need to fix, Y for bad, but not immediate, O for not immediate: ";
         return  c;
     }
 
-    public  int statusUserI()
+    public ROY statusUserI()
     {
-        statusDescrip();
-        int cc = nui.nextInt();
-        return cc;
+        System.out.println(statusDescrip());
+        String cc = nui.nextLine();
+
+        if(Objects.equals(cc, "R"))
+        {
+            ni=ROY.RED;
+        }
+        else if (Objects.equals(cc,"Y"))
+        {
+            ni=ROY.YELLOW;
+        }
+        else if (Objects.equals(cc,"O"))
+        {
+            ni=ROY.ORANGE;
+        }
+        return ni;
     }
 }

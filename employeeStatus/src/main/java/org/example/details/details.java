@@ -1,15 +1,20 @@
-package org.example;
+package org.example.details;
 
 public class details
 {
     private String name;
     private String why;
-    private String status;
+    private ROY status;
 
-    public details(String name, String why, String status)
+    public details(String name, String why, ROY status)
     {
         this.name = name;
         this.why=why;
         this.status=status;
+    }
+
+    public ROY tus()
+    {
+        return status;
     }
 }

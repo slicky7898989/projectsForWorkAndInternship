@@ -1,7 +1,6 @@
-package org.example;
+package org.example.details;
 
-public enum ROY
-{
+public enum ROY {
     RED,
     ORANGE,
     YELLOW,
