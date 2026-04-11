@@ -2,6 +2,9 @@ package org.example.detailProcessing;
 
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.example.details.*;
 
 public class userInput
@@ -9,6 +12,9 @@ public class userInput
     private Scanner nui = new Scanner(System.in);
     private  String jent;
     private ROY ni;
+    private Pattern ann;
+    private Matcher bann;
+    private boolean an;
 
     private String nameDescrip()
     {
@@ -18,8 +24,20 @@ public class userInput
 
     public String nameUserI()
     {
-        System.out.println(nameDescrip());
-        String aa = nui.nextLine();
+        ann=Pattern.compile("\\d");
+        String aa;
+        do
+        {
+            System.out.println(nameDescrip());
+            aa = nui.nextLine();
+            bann=ann.matcher(aa);
+            an=bann.find();
+            if(an)
+            {
+                System.out.println("Only letters");
+            }
+
+        }while (an || aa.equals("") || aa.equals(" "));
         return aa;
     }
 
@@ -31,34 +49,52 @@ public class userInput
 
     public String reasonUserI()
     {
-        System.out.println(reasonDescrip());
-        String bb = nui.nextLine();
+
+        String bb;
+        do
+        {
+            System.out.println(reasonDescrip());
+            bb = nui.nextLine();
+
+        }while (Objects.equals(bb, "") || Objects.equals(bb, " "));
         return bb;
     }
 
     private String statusDescrip()
     {
-        String c ="Type in status, R for need to fix, Y for bad, but not immediate, O for not immediate: ";
+
+        String c ="Type in status, R for need to fix immediately, Y for bad, but not immediate, O for not immediate: ";
         return  c;
     }
 
     public ROY statusUserI()
     {
         System.out.println(statusDescrip());
-        String cc = nui.nextLine();
+        String cc;
 
-        if(Objects.equals(cc, "R"))
+        do
         {
-            ni=ROY.RED;
-        }
-        else if (Objects.equals(cc,"Y"))
-        {
-            ni=ROY.YELLOW;
-        }
-        else if (Objects.equals(cc,"O"))
-        {
-            ni=ROY.ORANGE;
-        }
+            cc = nui.nextLine();
+            if(Objects.equals(cc, "R"))
+            {
+                ni=ROY.RED;
+            }
+            else if (Objects.equals(cc,"Y"))
+            {
+                ni=ROY.YELLOW;
+            }
+            else if (Objects.equals(cc,"O"))
+            {
+                ni=ROY.ORANGE;
+            }
+            else
+            {
+                ni = null;
+                System.out.println("Only R,Y or O");
+            }
+
+        }while (ni == null);
+
         return ni;
     }
 }

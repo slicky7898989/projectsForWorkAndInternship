@@ -23,12 +23,19 @@ public class arrayObject
     public void addtoList()
     {
         Scanner jen = new Scanner(System.in);
-        String nj;
+        String nj="";
+        String trent="";
+
 
         do
         {
-            putAnswersIn();
-            men.add(gent);
+            if(Objects.equals(nj, "y") || Objects.equals(nj, "n") || !Objects.equals(trent, "YU"))
+            {
+                putAnswersIn();
+                men.add(gent);
+                trent="YU";
+
+            }
             System.out.println("Continue? y/n?");
             nj =  jen.nextLine();
         }while (!Objects.equals(nj, "n"));
@@ -45,7 +52,7 @@ public class arrayObject
             if(bent.tus() == ROY.RED)
             {
                 tent.add(new ArrayList<>());
-                tent.get(po).add(0,ROY.RED);
+                tent.get(po).add(0,"Status: "+ROY.RED);
                 tent.get(po).add(1,"Name: "+bent.namee());
                 tent.get(po).add(2,"Reason: "+bent.reason()+'\n'+'\n');
                 po++;
@@ -58,7 +65,7 @@ public class arrayObject
             if(bent.tus() == ROY.YELLOW)
             {
                 tent.add(new ArrayList<>());
-                tent.get(po).add(0,ROY.YELLOW);
+                tent.get(po).add(0,"Status: "+ROY.YELLOW);
                 tent.get(po).add(1,"Name: "+bent.namee());
                 tent.get(po).add(2,"Reason: "+bent.reason()+'\n'+'\n');
                 po++;
@@ -71,7 +78,7 @@ public class arrayObject
             if(bent.tus() == ROY.ORANGE)
             {
                 tent.add(new ArrayList<>());
-                tent.get(po).add(0,ROY.ORANGE);
+                tent.get(po).add(0,"Status: "+ROY.ORANGE);
                 tent.get(po).add(1,"Name: "+bent.namee());
                 tent.get(po).add(2,"Reason: "+bent.reason()+'\n'+'\n');
                 po++;
