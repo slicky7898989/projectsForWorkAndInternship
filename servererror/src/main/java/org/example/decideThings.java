@@ -33,7 +33,7 @@ public class decideThings
     }
     public   String whatNotif()
     {
-        System.out.println("What is the notification to be sent?");
+        System.out.println("What is the server error?");
         thisIsTheNotif= ren.nextLine();
 
         return thisIsTheNotif;
