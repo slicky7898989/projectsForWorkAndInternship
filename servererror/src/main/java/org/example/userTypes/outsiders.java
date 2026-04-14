@@ -12,4 +12,21 @@ public class outsiders
         this.notification=notification;
         this.infromedOrNot=infromedOrNot;
     }
+
+    public  void setnotif(String fication)
+    {
+        this.notification=fication;
+    }
+
+    public  void  orNot(String infor)
+    {
+        this.infromedOrNot =infor;
+    }
+
+    public void  print()
+    {
+        System.out.println(name);
+        System.out.println(notification);
+        System.out.println(infromedOrNot);
+    }
 }

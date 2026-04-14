@@ -12,4 +12,23 @@ public class admin
         this.notification=notification;
         this.infromedOrNot=infromedOrNot;
     }
+
+    public void setName(String ame)
+    {
+        this.notification =ame;
+    }
+
+    public void setnot(String not)
+    {
+        this.infromedOrNot =not;
+    }
+
+    public  void print()
+    {
+        System.out.println(name);
+        System.out.println(notification);
+        System.out.println(infromedOrNot);
+    }
+
+
 }

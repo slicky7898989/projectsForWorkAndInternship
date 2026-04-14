@@ -12,4 +12,21 @@ public class employee
         this.notification=notification;
         this.infromedOrNot=infromedOrNot;
     }
+
+    public  void setnotif(String notiff)
+    {
+        this.notification=notiff;
+    }
+
+    public  void orNot(String inform)
+    {
+        this.infromedOrNot =inform;
+    }
+
+    public  void print()
+    {
+        System.out.println(name);
+        System.out.println(name);
+        System.out.println(name);
+    }
 }
