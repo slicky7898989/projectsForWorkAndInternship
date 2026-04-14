@@ -3,6 +3,7 @@ import org.example.userTypes.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class makeUsers
 {
@@ -10,7 +11,6 @@ public class makeUsers
     private ArrayList<employee> em = new ArrayList<>();
     private ArrayList<outsiders> ou = new ArrayList<>();
     private  decideThings thing = new decideThings();
-    private  makeUsers  bent = new makeUsers();
 
 
   private void putInPeople()
@@ -32,9 +32,9 @@ public class makeUsers
 
 
 
-      outsiders crent = new outsiders("Gent","N/A","N/A");
-      outsiders czent = new outsiders("Veckna","N/A","N/A");
-      outsiders clent = new outsiders("Zeck","N/A","N/A");
+      outsiders crent = new outsiders("Trent","N/A","N/A");
+      outsiders czent = new outsiders("Nuio","N/A","N/A");
+      outsiders clent = new outsiders("Krere","N/A","N/A");
       ou.add(czent);
       ou.add(crent);
       ou.add(clent);
@@ -43,53 +43,89 @@ public class makeUsers
 
   public  void  printStuff()
   {
-      putInPeople();
-      String not = thing.whatNotif();
-      String adm= thing.admin();
-      String outs= thing.foreigner();
-      String emp= thing.employee();
 
-      if(Objects.equals(adm, "y"))
+      Scanner rent = new Scanner(System.in);
+      String r;
+
+      do
       {
-        for(admin ren:ad)
-        {
-            ren.setName(not);
-            ren.setnot("Informed");
-        }
 
-          for(admin ner:ad)
+          putInPeople();
+          String not = thing.whatNotif();
+          String adm= thing.admin();
+          String outs= thing.foreigner();
+          String emp= thing.employee();
+
+          if(Objects.equals(adm, "y"))
           {
-             ner.print();
-          }
-      }
+              System.out.println("Administrator: ");
+              for(admin ren:ad)
+              {
+                  ren.setName(not);
+                  ren.setnot("Informed");
+              }
 
-      if(Objects.equals(outs, "y"))
-      {
-          for(outsiders ers:ou)
+              for(admin ner:ad)
+              {
+                  ner.print();
+                  System.out.println();
+              }
+              System.out.println();
+              System.out.println();
+          }
+
+          if(Objects.equals(outs, "y"))
           {
-              ers.setnotif(not);
-              ers.orNot("Informed");
+              System.out.println("Outsider: ");
+              for(outsiders ers:ou)
+              {
+                  ers.setnotif(not);
+                  ers.orNot("Informed");
+              }
+
+              for(outsiders rers:ou)
+              {
+                  rers.print();
+              }
+              System.out.println();
+              System.out.println();
           }
 
-          for(outsiders rers:ou)
+          if(Objects.equals(emp, "y"))
           {
-             rers.print();
+              System.out.println("Employee: ");
+              for(employee nun:em)
+              {
+                  nun.setnotif(not);
+                  nun.orNot("Informed");
+              }
+
+              for(employee nun:em)
+              {
+                  nun.print();
+                  System.out.println();
+              }
+              System.out.println();
+              System.out.println();
           }
-      }
 
-      if(Objects.equals(emp, "y"))
-      {
-            for(employee nun:em)
-            {
-                nun.setnotif(not);
-                nun.orNot("Informed");
-            }
 
-          for(employee nun:em)
+
+
+
+          do
           {
-              nun.setnotif(not);
-              nun.orNot("Informed");
-          }
-      }
+              System.out.println("Continue y/n?");
+              r=rent.nextLine();
+              if(!Objects.equals(r, "n") && !Objects.equals(r, "y"))
+              {
+                  System.out.println("Has to be y or n");
+
+              }
+          }while (!Objects.equals(r, "n") && !Objects.equals(r, "y"));
+
+      }while (!Objects.equals(r, "n"));
+
+
   }
 }

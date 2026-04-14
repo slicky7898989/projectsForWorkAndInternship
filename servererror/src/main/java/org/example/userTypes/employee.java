@@ -26,7 +26,7 @@ public class employee
     public  void print()
     {
         System.out.println(name);
-        System.out.println(name);
-        System.out.println(name);
+        System.out.println(notification);
+        System.out.println(infromedOrNot);
     }
 }

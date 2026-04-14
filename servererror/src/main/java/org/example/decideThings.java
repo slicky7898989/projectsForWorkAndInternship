@@ -1,7 +1,9 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class decideThings
 {
@@ -13,31 +15,72 @@ public class decideThings
 
 
 
+    private String yorn(String nm)
+    {
+        String zent;
+
+        if(Objects.equals(nm, "n") || Objects.equals(nm, "y"))
+        {
+            zent="a";
+        }
+        else
+        {
+            System.out.println("Either y or n");
+            zent = "b";
+        }
+        return zent;
+
+    }
     public   String whatNotif()
     {
         System.out.println("What is the notification to be sent?");
         thisIsTheNotif= ren.nextLine();
+
         return thisIsTheNotif;
     }
 
     public String admin()
     {
-        System.out.println("Will the admins recieve this? ");
-        A= ren.nextLine();
+        String rr;
+        do
+        {
+            System.out.println("Will the admins recieve this? ");
+            A= ren.nextLine();
+            rr= yorn(A);
+
+        }while (rr.equals("b"));
+
+
         return A;
     }
 
     public String employee()
     {
-        System.out.println("Will the employees recieve this? ");
-         E = ren.nextLine();
+        String s;
+
+        do
+        {
+            System.out.println("Will the employees recieve this? ");
+            E = ren.nextLine();
+            s=yorn(E);
+
+        }while (s.equals("b"));
+
         return E;
     }
 
     public String foreigner()
     {
-        System.out.println("Will the outsiders recieve this? ");
-        F = ren.nextLine();
+        String rentzz;
+
+        do
+        {
+            System.out.println("Will the outsiders recieve this? ");
+            F = ren.nextLine();
+            rentzz=yorn(F);
+
+        }while (rentzz.equals("b"));
+
         return F;
     }
 
