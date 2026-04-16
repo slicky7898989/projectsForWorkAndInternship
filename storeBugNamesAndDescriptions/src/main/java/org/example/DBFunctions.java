@@ -1,9 +1,6 @@
 package org.example;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DBFunctions
 {
@@ -66,6 +63,30 @@ public class DBFunctions
         catch (Exception e)
         {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void readAndOutput()
+    {
+        ResultSet et;
+        link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
+        String ba="SELECT * FROM documentation";
+
+        try
+        {
+            dent = DriverManager.getConnection(link,use,pass);
+            lent =  dent.createStatement();
+            et = lent.executeQuery(ba);
+            while (et.next())
+            {
+                String a = et.getString("Bug_Name");
+                String b = et.getString("Bug_Description");
+
+                System.out.println("Bug Name: "+a+" "+"Bug Description: "+b);
+            }
+        }catch (Exception e)
+        {
+
         }
     }
 
