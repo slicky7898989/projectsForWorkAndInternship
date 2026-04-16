@@ -52,7 +52,7 @@ public class DBFunctions
     public void insertToTable()
     {
         link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
-        String ba="INSERT INTO documentation_2 VALUES ('Kento', 'It exists',1);";
+        String ba="INSERT INTO documentation_2 VALUES ('Bento', 'It exists',2);";
         try
         {
             dent = DriverManager.getConnection(link,use,pass);
@@ -101,6 +101,23 @@ public class DBFunctions
                 dent = DriverManager.getConnection(link,use,pass);
                 lent=dent.createStatement();
                 lent.executeUpdate(ba);
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
+    public void delete()
+    {
+        link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
+        String ba="DELETE FROM documentation_2 WHERE ID = 2";
+
+        try
+        {
+            dent=DriverManager.getConnection(link,use,pass);
+            lent= dent.createStatement();
+            lent.executeUpdate(ba);
         }
         catch (Exception e)
         {
