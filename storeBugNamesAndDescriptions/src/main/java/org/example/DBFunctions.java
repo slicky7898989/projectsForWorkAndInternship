@@ -34,7 +34,7 @@ public class DBFunctions
     public void table()
     {
         link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
-        String ba="CREATE TABLE documentation(Bug_Name Varchar(1000) Not Null, Bug_Description Varchar(1000) Not Null)";
+        String ba="CREATE TABLE documentation_2(Bug_Name Varchar(1000) Not Null, Bug_Description Varchar(1000) Not Null, ID Int Not Null)";
         try
         {
             dent = DriverManager.getConnection(link,use,pass);
@@ -52,7 +52,7 @@ public class DBFunctions
     public void insertToTable()
     {
         link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
-        String ba="INSERT INTO documentation VALUES ('Kento', 'It exists');";
+        String ba="INSERT INTO documentation_2 VALUES ('Kento', 'It exists',1);";
         try
         {
             dent = DriverManager.getConnection(link,use,pass);
@@ -70,7 +70,7 @@ public class DBFunctions
     {
         ResultSet et;
         link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
-        String ba="SELECT * FROM documentation";
+        String ba="SELECT * FROM documentation_2";
 
         try
         {
@@ -81,10 +81,28 @@ public class DBFunctions
             {
                 String a = et.getString("Bug_Name");
                 String b = et.getString("Bug_Description");
+                String c = et.getString("ID");
 
-                System.out.println("Bug Name: "+a+" "+"Bug Description: "+b);
+                System.out.println("Bug Name: "+a+" "+"Bug Description: "+b+"ID: "+c);
             }
         }catch (Exception e)
+        {
+
+        }
+    }
+
+    public  void update()
+    {
+        link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
+        String ba="UPDATE documentation_2 SET Bug_Description = 'IT DOES EXIST' WHERE ID = 1";
+
+        try
+        {
+                dent = DriverManager.getConnection(link,use,pass);
+                lent=dent.createStatement();
+                lent.executeUpdate(ba);
+        }
+        catch (Exception e)
         {
 
         }
