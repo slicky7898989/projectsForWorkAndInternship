@@ -1,6 +1,8 @@
 package org.example;
 
 import java.sql.*;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class DBFunctions
 {
@@ -9,6 +11,24 @@ public class DBFunctions
     private String link="jdbc:mysql://127.0.0.1:3306";
     private Connection dent;
     private Statement lent;
+    private Scanner input = new Scanner(System.in);
+
+
+    private String yorn(String a)
+    {
+        String b;
+        if(Objects.equals(a, "y") || Objects.equals(a, "n"))
+        {
+            b="c";
+        }
+        else
+        {
+            b="d";
+        }
+
+        return  b;
+    }
+
 
 
     public void create()
@@ -31,6 +51,9 @@ public class DBFunctions
 
     }
 
+
+
+
     public void table()
     {
         link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
@@ -51,19 +74,53 @@ public class DBFunctions
 
     public void insertToTable()
     {
-        link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
-        String ba="INSERT INTO documentation_2 VALUES ('Bento', 'It exists',2);";
-        try
+        String name;
+        String description;
+        int id;
+        String con;
+
+
+        do
         {
-            dent = DriverManager.getConnection(link,use,pass);
-            lent =  dent.createStatement();
-            lent.executeUpdate(ba);
-            System.out.println("HI!");
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
+            System.out.println("Type in the name of the bug: ");
+            name=input.nextLine();
+            System.out.println("Type in the description of the bug: ");
+            description = input.nextLine();
+            System.out.println("Type in the ID number: ");
+            id=input.nextInt();
+
+
+
+            link="jdbc:mysql://127.0.0.1:3306/bug_documentation";
+            //String ba="INSERT INTO documentation_2 VALUES (" + name + ","+description+","+id+");";
+            String za = "INSERT INTO documentation_2(bug_name, bug_description,ID) VALUES (?,?,?)";
+            try
+            {
+                dent = DriverManager.getConnection(link,use,pass);
+                PreparedStatement gen= dent.prepareStatement(za);
+
+                gen.setString(1,name);
+                gen.setString(2,description);
+                gen.setInt(3,id);
+
+                gen.executeUpdate();
+            }
+            catch (Exception e)
+            {
+                throw new RuntimeException(e);
+            }
+
+
+            String bb;
+            do
+            {
+                System.out.println("Continue?y/n");
+                con=input.nextLine();
+                bb=yorn(con);
+            }while (bb.equals("d"));
+
+        }while (!Objects.equals(con, "n"));
+
     }
 
     public void readAndOutput()
@@ -94,13 +151,32 @@ public class DBFunctions
     public  void update()
     {
         link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
-        String ba="UPDATE documentation_2 SET Bug_Description = 'IT DOES EXIST' WHERE ID = 1";
+        //String ba="UPDATE documentation_2 SET Bug_Description = 'IT DOES EXIST' WHERE ID = 1";
+        String bc="";
+
+        String jen = input.nextLine();
+
+        if(Objects.equals(jen, "name"))
+        {
+            bc = "UPDATE documentation_2 SET Bug_Name = ? WHERE ID = ?";
+        }
+        else if (Objects.equals(jen, "description"))
+        {
+            bc = "UPDATE documentation_2 SET Bug_Description = ? WHERE ID = ?";
+        }
+
 
         try
         {
                 dent = DriverManager.getConnection(link,use,pass);
-                lent=dent.createStatement();
-                lent.executeUpdate(ba);
+                PreparedStatement rent = dent.prepareStatement(bc);
+
+                String trent= input.nextLine();
+                int Zent= input.nextInt();
+
+                 rent.setString(1,trent);
+                 rent.setInt(2,Zent);
+                 rent.executeUpdate();
         }
         catch (Exception e)
         {
