@@ -3,7 +3,7 @@ package org.example;
 public class Main {
     public static void main(String[] args)
     {
-        DBFunctions func = new DBFunctions();
-        func.update();
+        chooseDBFunction z = new chooseDBFunction();
+        z.setFunction();
     }
 }

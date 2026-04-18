@@ -12,6 +12,7 @@ public class DBFunctions
     private Connection dent;
     private Statement lent;
     private Scanner input = new Scanner(System.in);
+    chooseDBFunction renttt;
 
 
     private String yorn(String a)
@@ -116,10 +117,13 @@ public class DBFunctions
             {
                 System.out.println("Continue?y/n");
                 con=input.nextLine();
+                con=input.nextLine();
                 bb=yorn(con);
             }while (bb.equals("d"));
 
         }while (!Objects.equals(con, "n"));
+        renttt= new chooseDBFunction();
+        renttt.setFunction();
 
     }
 
@@ -140,65 +144,159 @@ public class DBFunctions
                 String b = et.getString("Bug_Description");
                 String c = et.getString("ID");
 
-                System.out.println("Bug Name: "+a+" "+"Bug Description: "+b+"ID: "+c);
+                System.out.println("Bug Name: "+a+" ||| "+"Bug Description: "+b+" ||| "+"ID: "+c);
             }
         }catch (Exception e)
         {
 
         }
+
+        renttt= new chooseDBFunction();
+        renttt.setFunction();
     }
 
     public  void update()
     {
+
         link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
         //String ba="UPDATE documentation_2 SET Bug_Description = 'IT DOES EXIST' WHERE ID = 1";
         String bc="";
+        String jen;
+        String zen;
 
-        String jen = input.nextLine();
-
-        if(Objects.equals(jen, "name"))
+        do
         {
-            bc = "UPDATE documentation_2 SET Bug_Name = ? WHERE ID = ?";
-        }
-        else if (Objects.equals(jen, "description"))
-        {
-            bc = "UPDATE documentation_2 SET Bug_Description = ? WHERE ID = ?";
-        }
+
+            do
+            {
+                System.out.println("Type in name for bug name and type in description for bug description: ");
+                jen = input.nextLine();
+
+                if(Objects.equals(jen, "name"))
+                {
+                    bc = "UPDATE documentation_2 SET Bug_Name = ? WHERE ID = ?";
+                }
+                else if (Objects.equals(jen, "description"))
+                {
+                    bc = "UPDATE documentation_2 SET Bug_Description = ? WHERE ID = ?";
+                }
+                else
+                {
+                    bc="H";
+                }
+
+            }while (bc.equals("H"));
 
 
-        try
-        {
+
+
+            try
+            {
                 dent = DriverManager.getConnection(link,use,pass);
                 PreparedStatement rent = dent.prepareStatement(bc);
 
+                System.out.println("Type in the replacement name or description: ");
                 String trent= input.nextLine();
-                int Zent= input.nextInt();
+                System.out.println("Type in the ID to be updated: ");
+                String nm="";
+                int Zent = 0;
+                do
+                {
+                    try
+                    {
+                        nm="";
+                        Zent= input.nextInt();
+                    } catch (Exception e)
+                    {
+                        nm="F";
+                        input.next();
+                    }
 
-                 rent.setString(1,trent);
-                 rent.setInt(2,Zent);
-                 rent.executeUpdate();
-        }
-        catch (Exception e)
-        {
+                }while (nm.equals("F"));
 
-        }
+
+                rent.setString(1,trent);
+                rent.setInt(2,Zent);
+                rent.executeUpdate();
+            }
+            catch (Exception e)
+            {
+
+            }
+
+
+
+
+            String nn;
+            do
+            {
+                System.out.println("Continue?y/n");
+                input.nextLine();
+                zen=input.nextLine();
+                nn = yorn(zen);
+
+            }while (nn.equals("d"));
+
+        }while (!Objects.equals(zen, "n"));
+        renttt= new chooseDBFunction();
+        renttt.setFunction();
+
     }
 
     public void delete()
     {
+
         link="jdbc:mysql://127.0.0.1:3306/BUG_DOCUMENTATION";
-        String ba="DELETE FROM documentation_2 WHERE ID = 2";
+        String ba="DELETE FROM documentation_2 WHERE ID = ?";
+        String tent ="";
 
-        try
+        do
         {
-            dent=DriverManager.getConnection(link,use,pass);
-            lent= dent.createStatement();
-            lent.executeUpdate(ba);
-        }
-        catch (Exception e)
-        {
+            try
+            {
+                dent=DriverManager.getConnection(link,use,pass);
+                PreparedStatement ty = dent.prepareStatement(ba);
+                int rern = 0;
+                String nm= "";
+                System.out.println("Put in the ID of the item to be deleted: ");
+                do
+                {
+                    try
+                    {
+                        nm = "";
+                        rern = input.nextInt();
+                    }
+                    catch (Exception e)
+                    {
+                        nm = "a";
+                        input.next();
+                    }
+                }while (nm.equals("a"));
+                ty.setInt(1,rern);
+                ty.executeUpdate();
 
-        }
+            }
+            catch (Exception e)
+            {
+
+            }
+
+
+            String yu;
+            do
+            {
+                System.out.println("Continue?y/n");
+                input.nextLine();
+                tent = input.nextLine();
+                 yu =yorn(tent);
+            }while (yu.equals("d"));
+
+        }while (!Objects.equals(tent, "n"));
+
+        renttt= new chooseDBFunction();
+        renttt.setFunction();
+
+
     }
 
 }
