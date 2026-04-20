@@ -1,5 +1,8 @@
 package org.example;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.Objects;
 import java.util.Scanner;
@@ -13,38 +16,35 @@ public class choice
     private Connection contt;
     private Statement state;
     private create ate= new create();
+    public  Scanner tn= new Scanner(System.in);
     public void choose()
     {
-        String a="";
-        Scanner rent = new Scanner(System.in);
+        int zz;
 
+        System.out.println("Type in a exisiting database name or a new database name: ");
+        String be;
+        be ="bugerroramount";
         try
         {
-            contt= DriverManager.getConnection(path,user,password);
-            ResultSet jen = contt.getMetaData().getCatalogs();
-            int aaa=0;
-           while (jen.next())
-           {
-               String b = jen.getString(1);
-               System.out.println(b);
-           }
-        }
-        catch (SQLException e)
-        {
-
-        }
-
-        int gh = rent.nextInt();
-
-
-
-        if(a.equals("F"))
-        {
-            switch (gh)
+            contt=DriverManager.getConnection(path,user,password);
+            ResultSet et = contt.getMetaData().getCatalogs();
+             zz =0;
+            while (et.next())
             {
-                case 1:
-                    ate.createDB();
+                String mn =et.getString(1);
+                if(Objects.equals(mn, be))
+                {
+                    zz++;
+                }
             }
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException(e);
+        }
+        if (zz == 0)
+        {
+            ate.createDB(be);
         }
 
 

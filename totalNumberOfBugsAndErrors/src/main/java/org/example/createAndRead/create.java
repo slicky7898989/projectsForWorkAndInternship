@@ -1,6 +1,8 @@
 package org.example.createAndRead;
 
 import java.sql.*;
+import java.util.Scanner;
+import org.example.*;
 
 public class create
 {
@@ -12,9 +14,9 @@ public class create
 
 
 
-    public  void createDB()
+    public  void createDB(String h)
     {
-        String gh = "CREATE DATABASE BUGNUMBER";
+        String gh = "CREATE DATABASE BUGERRORAMOUNT";
         try
         {
             contt = DriverManager.getConnection(path,user,password);
