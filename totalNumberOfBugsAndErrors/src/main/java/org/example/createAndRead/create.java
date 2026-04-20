@@ -6,7 +6,7 @@ public class create
 {
     private String user = "root";
     private String password= "rider";
-    private String  path = "jdbc:mysql://127.0.0.1:3306";
+    private String  path = "jdbc:mysql://127.0.0.2:3306";
     private Connection contt;
     private Statement state;
 
