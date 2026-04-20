@@ -16,12 +16,11 @@ public class choice
     private Connection contt;
     private Statement state;
     private create ate= new create();
+    private  read ad = new read();
     public  Scanner tn= new Scanner(System.in);
     public void choose()
     {
         int zz;
-
-        System.out.println("Type in a exisiting database name or a new database name: ");
         String be;
         be ="bugerroramount";
         try
@@ -46,6 +45,11 @@ public class choice
         {
             ate.createDB(be);
         }
+
+
+
+       //ate.insertToTable();
+        ad.readTable();
 
 
     }
