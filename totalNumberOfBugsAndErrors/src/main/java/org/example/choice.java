@@ -7,6 +7,7 @@ import java.sql.*;
 import java.util.Objects;
 import java.util.Scanner;
 import org.example.createAndRead.*;
+import org.example.updateAndDelete.*;
 
 public class choice
 {
@@ -17,6 +18,7 @@ public class choice
     private Statement state;
     private create ate= new create();
     private  read ad = new read();
+    private update date= new update();
     public  Scanner tn= new Scanner(System.in);
     public void choose()
     {
@@ -49,7 +51,8 @@ public class choice
 
 
        //ate.insertToTable();
-        ad.readTable();
+        //ad.readTable();
+        date.update();
 
 
     }
