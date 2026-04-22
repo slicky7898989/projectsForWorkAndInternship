@@ -19,6 +19,7 @@ public class choice
     private create ate= new create();
     private  read ad = new read();
     private update date= new update();
+    private  delete elete = new delete();
     public  Scanner tn= new Scanner(System.in);
     public void choose()
     {
@@ -52,7 +53,8 @@ public class choice
 
        //ate.insertToTable();
         //ad.readTable();
-        date.update();
+        //date.update();
+        elete.del();
 
 
     }

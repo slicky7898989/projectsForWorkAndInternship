@@ -74,7 +74,7 @@ public class update
         }
         else if (d.equals("y"))
         {
-            u1="UPDATE bugs_and_errors "+"SET Bug_Or_Error_Name = ? Bug_Or_ErrorDescription = ? WHERE ID in (?)";
+            u1="UPDATE bugs_and_errors "+"SET Bug_Or_Error_Name = ?, Bug_Or_ErrorDescription = ? WHERE ID in (?)";
             try
             {
                 contt = DriverManager.getConnection(path,user,password);
@@ -83,10 +83,9 @@ public class update
                 String az = ner.nextLine();
                 String aa = ner.nextLine();
                 System.out.println("Type in Name: ");
-                String azz = ner.nextLine();
                 String ab = ner.nextLine();
-                gh.setString(1,aa);
-                gh.setString(2,ab);
+                gh.setString(1,ab);
+                gh.setString(2,aa);
                 gh.setInt(3,dd);
                 gh.executeUpdate();
             }
