@@ -101,7 +101,7 @@ public class choice
 
             }
 
-        }while (azz.equals("F") || azz.equals("y"));
+        }while (azz.equals("F") || azz.equals("y"));//Hi
 
 
     }
