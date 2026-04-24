@@ -56,7 +56,52 @@ public class choice
         //ad.readTable();
         //date.update();
         //elete.del();
-        ounter.goThrough();
+        //ounter.goThrough();
+
+
+        System.out.println("Type in the input: ");
+        int inp;
+        String azz = "";
+
+        do
+        {
+            inp= tn.nextInt();
+            switch (inp)
+            {
+                case 1:
+                    ate.insertToTable();
+                    break;
+
+                case 2:
+                    ad.readTable();
+                    break;
+
+                case 3:
+                    date.update();
+                    break;
+
+                case 4:
+                    elete.del();
+                    break;
+
+                case 5:
+                    ounter.goThrough();
+                    break;
+
+                case 6:
+                    System.out.println("Continue? y/n");
+                    do
+                    {
+                        azz=tn.nextLine();
+
+                    }while (!azz.equals("y") || !azz.equals("n") );
+
+                default:
+                    azz="F";
+
+            }
+
+        }while (azz.equals("F") || azz.equals("y"));
 
 
     }

@@ -21,7 +21,21 @@ public class delete
             contt= DriverManager.getConnection(path,user,password);
             PreparedStatement nn = contt.prepareStatement(qa);
             System.out.println("Type in the ID of the item to be deleted: ");
-            int nnm= bn.nextInt();
+            int nnm=0;
+            String h ="";
+            do
+            {
+                try
+                {
+                    h="";
+                    nnm= bn.nextInt();
+                }
+                catch (Exception e)
+                {
+                    bn.nextLine();
+                    h="F";
+                }
+            }while (h.equals("F"));
             nn.setInt(1,nnm);
             nn.executeUpdate();
         }

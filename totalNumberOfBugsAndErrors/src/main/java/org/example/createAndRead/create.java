@@ -2,6 +2,9 @@ package org.example.createAndRead;
 
 import java.sql.*;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.example.*;
 
 public class create
@@ -52,15 +55,41 @@ public class create
         String ins= "INSERT INTO bugs_and_errors VALUES(?,?,?)";
         Scanner mn = new Scanner(System.in);
         path = "jdbc:mysql://127.0.0.2:3306/bugerroramount";
-        int a;
+        int a=0;
         String b;
         String c;
+        String d ="";
 
         System.out.println("Type in ID: ");
-        a= mn.nextInt();
+        do
+        {
+            try
+            {
+                d="";
+                a= mn.nextInt();
+            }
+            catch (Exception e)
+            {
+                mn.nextLine();
+                System.out.println("Only numbers");
+                d="F";
+            }
+        }while (d.equals("F"));
+        d="";
         System.out.println("Type in name: ");
         mn.nextLine();
-        b=mn.nextLine();
+        do
+        {
+            d="";
+            b=mn.nextLine();
+            Pattern NM = Pattern.compile("\\d");
+            Matcher MN = NM.matcher(b);
+            boolean nn = MN.find();
+            if(nn == true)
+            {
+                d = "F";
+            }
+        }while (d.equals("F"));
         System.out.println("Type in description: ");
         c=mn.nextLine();
 

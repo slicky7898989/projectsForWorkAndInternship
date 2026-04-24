@@ -1,6 +1,7 @@
 package org.example.updateAndDelete;
 
 import java.sql.*;
+import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -12,21 +13,90 @@ public class update
     private Connection contt;
     private Statement state;
 
+    private String yesorno(String trent)
+    {
+        String zet = "";
+        if(Objects.equals(trent, "y") || Objects.equals(trent, "n") )
+        {
+            zet = "y";
+        }
+        else
+        {
+            zet = "n";
 
+        }
+        return zet;
+    }
 
 
     public void update()
     {
 
         Scanner ner = new Scanner(System.in);
-        System.out.println("Edit bug or error name only? ");
-        String a = ner.nextLine();
-        System.out.println("Edit bug or error description only? ");
-        String b= ner.nextLine();
-        System.out.println("Edit both bug or error name and description? ");
-        String d= ner.nextLine();
+        String bnn= "";
+        String c;
+        String a;
+        String b;
+        String d;
+        do
+        {
+            System.out.println("Type in n for No, type in y for Yes");
+            System.out.println("Edit bug or error name only? ");
+            do
+            {
+                a = ner.nextLine();
+                c = yesorno(a);
+            }while (c.equals("n"));
+            System.out.println("Edit bug or error description only? ");
+            do
+            {
+                b = ner.nextLine();
+                c = yesorno(b);
+            }while (c.equals("n"));
+            System.out.println("Edit both bug or error name and description? ");
+            do
+            {
+                d= ner.nextLine();
+                c=yesorno(d);
+            }while (c.equals("n"));
+
+            if(a.equals("y") && b.equals("n") && d.equals("n"))
+            {
+                bnn = "";
+            }
+            else if (a.equals("n") && b.equals("y") && d.equals("n"))
+            {
+                bnn = "";
+            }
+            else if (a.equals("n") && b.equals("n") && d.equals("y"))
+            {
+                bnn = "";
+            }
+            else
+            {
+                bnn = "F";
+                System.out.println("Only one y");
+            }
+
+
+        }while (bnn.equals("F"));
         System.out.println("Type in the ID: ");
-        int dd= ner.nextInt();
+        int dd=0;
+        String hh = "";
+        do
+        {
+          try
+          {
+              hh = "";
+              dd= ner.nextInt();
+          }
+          catch (Exception e)
+          {
+            ner.nextLine();
+            System.out.println("Only numbers");
+            hh="F";
+          }
+        }while (hh.equals("F"));
 
 
         String u1="UPDATE BUGERRORAMOUNT "+"SET Bug_Or_Error_Name = ? Bug_Or_ErrorDescription = ? WHERE ID in (?)";
