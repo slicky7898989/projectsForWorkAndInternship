@@ -66,7 +66,7 @@ public class choice
 
         do
         {
-            System.out.println("1. Insert data to table");
+            System.out.println("1. Insert data to table ");
             System.out.println("2. Output data from table");
             System.out.println("3. Update table content");
             System.out.println("4. Delete data from table");
