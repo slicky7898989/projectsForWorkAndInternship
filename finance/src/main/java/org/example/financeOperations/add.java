@@ -10,6 +10,7 @@ public class add
     Scanner input= new Scanner(System.in);
     public ArrayList<show> gh = new ArrayList<>();
     remove move = new remove();
+    update date = new update();
 
 
     public void in()
@@ -45,6 +46,12 @@ public class add
     public  void bn()
     {
         move.delete(gh);
+    }
+
+    public void up()
+    {
+        date.all(gh);
+
     }
 
 
