@@ -34,5 +34,12 @@ public class finance
     public String getDepartmentDeposit()
     {
         return departmentDeposit;
+
     }
+
+
+
+
+
+
 }
