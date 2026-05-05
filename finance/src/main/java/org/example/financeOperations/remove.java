@@ -11,6 +11,7 @@ public class remove
 
    public void delete(ArrayList<show> ip)
    {
+       System.out.println("Type in the person name to be deleted: ");
        String a = reh.nextLine();
        int b = 0;
 

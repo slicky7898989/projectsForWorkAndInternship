@@ -12,7 +12,32 @@ public class update
     {
         Scanner ren = new Scanner(System.in);
 
-        int a = 1;
+        System.out.println("1. To change name only ");
+        System.out.println("2. To change department only ");
+        System.out.println("3. To change money only ");
+        System.out.println("4. To change name, department and money ");
+        int aa =0;
+        int a =0;
+        do
+        {
+            aa =0;
+            try
+            {
+                 a = ren.nextInt();
+                 if(a != 1 && a!=2 && a!=3 && a!=4 && a!=5 && a!=6)
+                 {
+                     aa = 1;
+                 }
+            }
+            catch (Exception e)
+            {
+                ren.nextLine();
+                aa = 1;
+            }
+
+
+        }while (aa == 1);
+
         switch (a)
         {
             case 1:
@@ -28,13 +53,17 @@ public class update
                 all(lop0);
                 break;
         }
+
+
     }
 
     public void name(ArrayList<show> lop1)
     {
+        System.out.println("Type in the person name to be identified with: ");
         // to identify
         String a = ren.nextLine();
 
+        System.out.println("Type in the person name to be replaced with: ");
         //replacement
         String b = ren.nextLine();
 
@@ -61,9 +90,11 @@ public class update
 
     public void department(ArrayList<show> lop1)
     {
+        System.out.println("Type in the name to be identified with: ");
         // to identify
         String a = ren.nextLine();
 
+        System.out.println("Type in the department name replacement: ");
         //replacement
         String b = ren.nextLine();
 
@@ -93,11 +124,27 @@ public class update
 
     public void money(ArrayList<show> lop1)
     {
+        System.out.println("Type in the name of the person you want to edit: ");
         // to identify
         String a = ren.nextLine();
 
+        System.out.println("Type in the amonut you wanted to change: ");
         //replacement
-        int b = ren.nextInt();
+        int b = 0;
+        int bn = 0;
+        do
+        {
+            bn = 0;
+            try
+            {
+                b = ren.nextInt();
+            }
+            catch (Exception e)
+            {
+                bn = 1;
+            }
+
+        }while (bn == 1);
 
 
 
@@ -124,15 +171,33 @@ public class update
 
     public void all(ArrayList<show> lop1)
     {
+        System.out.println("Type in the person to be identified with: ");
         // to identify
         String a = ren.nextLine();
 
         //replacement
-        int b = ren.nextInt();
+        int b;
 
+        System.out.println("Type in the number to be replaced with: ");
+        int za =0;
+        do
+        {
+            b=0;
+            try
+            {
+                b = ren.nextInt();
+            }
+            catch (Exception e)
+            {
+                za = 1;
+            }
+        }while (za == 1);
+
+        System.out.println("Type in the replacement department:");
         ren.nextLine();
         String bb = ren.nextLine();
 
+        System.out.println("Type in the replacement person name: ");
         String cc = ren.nextLine();
 
         int c = 0;

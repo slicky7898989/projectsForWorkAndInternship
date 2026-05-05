@@ -11,27 +11,30 @@ public class add
     public ArrayList<show> gh = new ArrayList<>();
     remove move = new remove();
     update date = new update();
+    Main hj = new Main();
 
 
     public void in()
     {
 
-        for(int y  =0;y<2;y++)
-        {
-            Integer a = input.nextInt();
-            ance.setMoneyAmount(a);
+        System.out.println("Type in the amount of money to be deposited: ");
+        Integer a = input.nextInt();
+        ance.setMoneyAmount(a);
 
 
-            input.nextLine();
-            String b = input.nextLine();
-            ance.setPersonToDeposit(b);
+        System.out.println("Type in the name of the person who deposited the money: ");
+        input.nextLine();
+        String b = input.nextLine();
+        ance.setPersonToDeposit(b);
 
 
-            String c = input.nextLine();
-            ance.setDepartmentDeposit(c);
+        System.out.println("Type in the name of the department who ordered the deposit: ");
+        String c = input.nextLine();
+        ance.setDepartmentDeposit(c);
 
-            gh.add(new show(a,b,c));
-        }
+        gh.add(new show(a,b,c));
+
+
 
     }
 
