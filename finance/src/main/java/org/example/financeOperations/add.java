@@ -50,7 +50,7 @@ public class add
 
     public void up()
     {
-        date.all(gh);
+        date.upd(gh);
 
     }
 

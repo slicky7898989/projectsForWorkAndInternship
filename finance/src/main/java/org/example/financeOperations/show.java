@@ -18,6 +18,21 @@ public class show
         this.c1=c1;
     }
 
+    public Integer getAmount()
+    {
+        return a1;
+    }
+
+    public String getDepartment()
+    {
+        return b1;
+    }
+
+    public String getPerson()
+    {
+        return c1;
+    }
+
 
     public void show()
     {
