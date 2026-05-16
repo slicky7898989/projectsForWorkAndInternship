@@ -12,6 +12,8 @@ public class add
     private Scanner rent= new Scanner(System.in);
     private  show gh = new show();
     private edit gh2 = new edit();
+    private delete elte = new delete();
+    private  average rage = new average();
     public void add1()
     {
         int b= rent.nextInt();
@@ -55,5 +57,15 @@ public class add
     public void ed()
     {
         gh2.cycleThrough(customer);
+    }
+
+    public void te()
+    {
+        elte.del(customer);
+    }
+
+    public void ge()
+    {
+        System.out.println(rage.rage(customer));
     }
 }

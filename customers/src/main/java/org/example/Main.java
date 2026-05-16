@@ -9,7 +9,9 @@ public class Main extends add
         {
             jen.add1();
         }
-        jen.ed();
+        //jen.ed();
+        //jen.te();
+        jen.ge();
         jen.ow();
     }
 }
