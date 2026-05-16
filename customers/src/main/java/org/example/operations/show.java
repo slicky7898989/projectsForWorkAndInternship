@@ -12,7 +12,7 @@ public class show
         int b = 0;
         for(Integer a:hj.keySet())
         {
-            System.out.println(a);
+            System.out.println("ID: "+a);
             for(symbols bn:hj.values())
             {
                 if(b != aa)

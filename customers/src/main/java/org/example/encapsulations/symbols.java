@@ -45,10 +45,10 @@ public class symbols
 
     public void get()
     {
-        System.out.println(er.getAge());
-        System.out.println(er.getName());
-        System.out.println(er.getMood());
-        System.out.println(he.getStuff());
+        System.out.println("Age: "+er.getAge());
+        System.out.println("Name: "+er.getName());
+        System.out.println("Mood: "+er.getMood());
+        System.out.println("Priority: "+he.getStuff());
         System.out.println();
     }
 }
