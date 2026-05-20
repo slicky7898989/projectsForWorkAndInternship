@@ -20,6 +20,7 @@ public class update extends mainList
             System.out.println("2. Edit Post Name Only");
             System.out.println("3. Edit Post Description Only");
             System.out.println("4. Edit Number Of Likes Only");
+            System.out.println("5. Edit All");
             System.out.println("Type in the number you want to use: ");
             aca = 0;
             try
