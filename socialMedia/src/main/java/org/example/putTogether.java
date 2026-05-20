@@ -32,4 +32,10 @@ public class putTogether
         ist.list(postList);
     }
 
+    public void  sd()
+    {
+        ist = new postWellness();
+        ist.list(postList);
+    }
+
 }

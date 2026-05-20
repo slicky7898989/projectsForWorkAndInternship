@@ -6,13 +6,14 @@ public class Main extends putTogether
     public static void main(String[] args)
     {
         Main gh = new Main();
-        for(int z = 0;z<2;z++)
+        for(int z = 0;z<4;z++)
         {
             gh.add();
         }
         //gh.edit();
-        gh.delete();
-        gh.show();
+        //gh.delete();
+        //gh.show();
+        gh.sd();
     }
 }
 
