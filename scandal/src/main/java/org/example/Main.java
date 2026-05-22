@@ -6,7 +6,7 @@ public class Main extends together
 {
     public static void main(String[] args)
     {
-        Main ain = new Main();
+        Main ain = new Main(); 
 
 
         /*for(int a = 0;a<5;a++)
