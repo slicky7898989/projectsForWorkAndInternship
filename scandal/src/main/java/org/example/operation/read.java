@@ -7,28 +7,36 @@ public class read extends Mainlist
 {
     public  void rations(HashMap<Integer,input> jk)
     {
-        int gh = 0;
-        int ga = 0;
-
-        for(Integer po: jk.keySet())
+        if(jk.isEmpty() == false)
         {
-            System.out.println("ID: "+po);
+            int gh = 0;
+            int ga = 0;
 
-            for(input op:jk.values())
+            for(Integer po: jk.keySet())
             {
-                if(gh != ga)
+                System.out.println("ID: "+po);
+
+                for(input op:jk.values())
                 {
-                    ga++;
-                    continue;
+                    if(gh != ga)
+                    {
+                        ga++;
+                        continue;
+                    }
+                    System.out.println("Scandal Name: "+op.getScandalName());
+                    System.out.println("Poster Name: "+op.getposterName());
+                    System.out.println("Damage Rating "+op.getdamageRating());
+                    System.out.println("Scandal Date: "+op.getscandalDate());
+                    System.out.println();
+                    break;
                 }
-                System.out.println("Scandal Name: "+op.getScandalName());
-                System.out.println("Poster Name: "+op.getposterName());
-                System.out.println("Damage Rating "+op.getdamageRating());
-                System.out.println("Scandal Date: "+op.getscandalDate());
-                System.out.println();
-                break;
+                gh++;
             }
-            gh++;
         }
+        else
+        {
+            System.out.println("Is Emtpy, Add A Scandal");
+        }
+
     }
 }

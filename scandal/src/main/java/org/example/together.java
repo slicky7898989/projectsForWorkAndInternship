@@ -33,5 +33,17 @@ public class together
         hj.rations(nm);
     }
 
+    public  void total()
+    {
+        hj = new totalScandal();
+        hj.rations(nm);
+    }
+
+    public void menu()
+    {
+        hj = new Mainlist();
+        hj.rations(nm);
+    }
+
 
 }

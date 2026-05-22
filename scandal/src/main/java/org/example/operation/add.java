@@ -4,8 +4,9 @@ import  org.example.*;
 import java.rmi.server.Operation;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
- public class add  extends Mainlist
+public class add  extends Mainlist
 {
     input gh =new input();
      public void rations(HashMap<Integer, input> jk)
@@ -61,7 +62,6 @@ import java.util.Scanner;
         nner.nextLine();
         System.out.println("Type in date of posting: ");
         String e = nner.nextLine();
-
         gh.setScandalName(b);
         gh.setposterName(a);
         gh.setdamageRating(c);
