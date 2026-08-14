@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!--- This entire file
+is for html CRUD front end 
+back end 
+practice-->
+<html>
+
+    <head>
+
+        <style>
+            #getOut
+            {
+                height:900px;
+                width:900px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id = "structure">
+            <label> Type In Structure </label><br>
+            <input type = "text" id = "gento"><br>
+            <button id = "putIn">Submit Strucutre</button>
+
+            <label>Structures: </label>
+            <textarea id = "getOut"></textarea>
+            <button id = "get">Get All Strucutres</button>
+        </div>
+
+       
+
+        <div id = "update">
+            <label>Type In ID Of Item To Be Edited</label>
+            <input type = "number" id = "num"><br>
+
+
+            <label>Type In The New Structure: </label>
+            <input type = "text" id = "strucutre"><br>
+
+            <button id = "EditStruc">Edit The Structure</button>
+        </div>
+
+        <div id = "delete">
+            <label>Type In The Number To Be Deleted</label>
+            <input type = "number" id = "del"><br>
+            <button id = "deleteButton">Delete</button>
+        </div>
+
+        <script src =  structure.js></script>
+    </body>
+</html>
